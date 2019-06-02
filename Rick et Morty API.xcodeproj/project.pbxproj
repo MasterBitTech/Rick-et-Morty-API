@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		136C69FD22A465B4001C3624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C69FC22A465B4001C3624 /* AppDelegate.swift */; };
-		136C69FF22A465B4001C3624 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C69FE22A465B4001C3624 /* ViewController.swift */; };
+		136C69FF22A465B4001C3624 /* CharactersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C69FE22A465B4001C3624 /* CharactersController.swift */; };
 		136C6A0222A465B4001C3624 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136C6A0022A465B4001C3624 /* Main.storyboard */; };
 		136C6A0422A465B4001C3624 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 136C6A0322A465B4001C3624 /* Assets.xcassets */; };
 		136C6A0722A465B4001C3624 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136C6A0522A465B4001C3624 /* LaunchScreen.storyboard */; };
+		136C6A1022A469C5001C3624 /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C6A0F22A469C5001C3624 /* NavController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		136C69F922A465B4001C3624 /* Rick et Morty API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rick et Morty API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		136C69FC22A465B4001C3624 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		136C69FE22A465B4001C3624 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		136C69FE22A465B4001C3624 /* CharactersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersController.swift; sourceTree = "<group>"; };
 		136C6A0122A465B4001C3624 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		136C6A0322A465B4001C3624 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		136C6A0622A465B4001C3624 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		136C6A0822A465B4001C3624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		136C6A0F22A469C5001C3624 /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,23 @@
 		136C69FB22A465B4001C3624 /* Rick et Morty API */ = {
 			isa = PBXGroup;
 			children = (
+				136C6A0E22A46947001C3624 /* Controller */,
 				136C69FC22A465B4001C3624 /* AppDelegate.swift */,
-				136C69FE22A465B4001C3624 /* ViewController.swift */,
 				136C6A0022A465B4001C3624 /* Main.storyboard */,
 				136C6A0322A465B4001C3624 /* Assets.xcassets */,
 				136C6A0522A465B4001C3624 /* LaunchScreen.storyboard */,
 				136C6A0822A465B4001C3624 /* Info.plist */,
 			);
 			path = "Rick et Morty API";
+			sourceTree = "<group>";
+		};
+		136C6A0E22A46947001C3624 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				136C69FE22A465B4001C3624 /* CharactersController.swift */,
+				136C6A0F22A469C5001C3624 /* NavController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +146,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				136C69FF22A465B4001C3624 /* ViewController.swift in Sources */,
+				136C69FF22A465B4001C3624 /* CharactersController.swift in Sources */,
 				136C69FD22A465B4001C3624 /* AppDelegate.swift in Sources */,
+				136C6A1022A469C5001C3624 /* NavController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
