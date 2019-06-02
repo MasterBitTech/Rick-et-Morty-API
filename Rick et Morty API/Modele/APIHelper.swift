@@ -19,15 +19,24 @@ class APIHelper  {
     func getPersos(_ string: String) {
         if let url = URL(string: string) {
             // Continuer
-            URLSession.shared.dataTask(with: url)  { (data, response, error)
-                in
+            URLSession.shared.dataTask(with: url)  { (data, response, error) in
                 if error != nil {
                     print(error!.localizedDescription)
                 }
                 
                 if data != nil {
                     //Convertir notre JSON
-                    
+                    do {
+                        let reponseJSON = try JSONDecoder().decode(APIResult.self, from: data!)
+                        for perso in reponseJSON.results {
+                            print(perso.name)
+                            print(perso.gender)
+                        }
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                } else {
+                    print("Aucune Data dispo")
                 }
             }.resume()
         } else {
