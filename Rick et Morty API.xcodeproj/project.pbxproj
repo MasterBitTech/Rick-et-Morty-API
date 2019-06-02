@@ -13,6 +13,8 @@
 		136C6A0422A465B4001C3624 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 136C6A0322A465B4001C3624 /* Assets.xcassets */; };
 		136C6A0722A465B4001C3624 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136C6A0522A465B4001C3624 /* LaunchScreen.storyboard */; };
 		136C6A1022A469C5001C3624 /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C6A0F22A469C5001C3624 /* NavController.swift */; };
+		136C6A1322A46C0A001C3624 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C6A1222A46C0A001C3624 /* APIHelper.swift */; };
+		136C6A1522A4711D001C3624 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C6A1422A4711D001C3624 /* APIResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		136C6A0622A465B4001C3624 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		136C6A0822A465B4001C3624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		136C6A0F22A469C5001C3624 /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
+		136C6A1222A46C0A001C3624 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		136C6A1422A4711D001C3624 /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		136C69FB22A465B4001C3624 /* Rick et Morty API */ = {
 			isa = PBXGroup;
 			children = (
+				136C6A1122A46BD4001C3624 /* Modele */,
 				136C6A0E22A46947001C3624 /* Controller */,
 				136C69FC22A465B4001C3624 /* AppDelegate.swift */,
 				136C6A0022A465B4001C3624 /* Main.storyboard */,
@@ -73,6 +78,15 @@
 				136C6A0F22A469C5001C3624 /* NavController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		136C6A1122A46BD4001C3624 /* Modele */ = {
+			isa = PBXGroup;
+			children = (
+				136C6A1222A46C0A001C3624 /* APIHelper.swift */,
+				136C6A1422A4711D001C3624 /* APIResult.swift */,
+			);
+			path = Modele;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +160,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				136C6A1322A46C0A001C3624 /* APIHelper.swift in Sources */,
+				136C6A1522A4711D001C3624 /* APIResult.swift in Sources */,
 				136C69FF22A465B4001C3624 /* CharactersController.swift in Sources */,
 				136C69FD22A465B4001C3624 /* AppDelegate.swift in Sources */,
 				136C6A1022A469C5001C3624 /* NavController.swift in Sources */,
