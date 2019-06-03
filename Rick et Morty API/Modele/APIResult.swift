@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 struct APIResult: Decodable {
     var info: Info
     var results: [Personnage]

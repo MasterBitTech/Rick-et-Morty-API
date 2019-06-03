@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias ApiCompletion = (_ next: String?, _ personnage: [Personnage]?, _ errorString: String?) -> Void
+
 class APIHelper  {
     
     private let _baseUrl = "https://rickandmortyapi.com/api/"
@@ -16,32 +18,29 @@ class APIHelper  {
         return _baseUrl + "character/"
     }
     
-    func getPersos(_ string: String) {
+    func getPersos(_ string: String, completion: ApiCompletion?) {
         if let url = URL(string: string) {
             // Continuer
             URLSession.shared.dataTask(with: url)  { (data, response, error) in
                 if error != nil {
-                    print(error!.localizedDescription)
+                    completion?(nil, nil, error!.localizedDescription)
                 }
                 
                 if data != nil {
                     //Convertir notre JSON
                     do {
                         let reponseJSON = try JSONDecoder().decode(APIResult.self, from: data!)
-                        for perso in reponseJSON.results {
-                            print(perso.name)
-                            print(perso.gender)
-                        }
-                    } catch {
-                        print(error.localizedDescription)
+                        completion?(reponseJSON.info.next, reponseJSON.results, nil)
+                     } catch {
+                        completion?(nil, nil, error.localizedDescription)
                     }
                 } else {
-                    print("Aucune Data dispo")
+                    completion?(nil, nil, "Aucune Data dispo")
                 }
             }.resume()
         } else {
             //Arrête
-            print("URL Invalide")
+            completion?(nil, nil, "Url Invalide")
         }
     }
     
