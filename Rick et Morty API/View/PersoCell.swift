@@ -20,5 +20,7 @@ class PersoCell: UICollectionViewCell {
        self.perso = perso
        self.nameLbl.text = self.perso.name
        self.persoIV.download(self.perso.image)
+        holderView.layer.cornerRadius = 25
+        holderView.clipsToBounds = true
     }
 }
