@@ -18,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kCq-F7-2Ue" customClass="DetailView" customModule="Rick_et_Morty_API" customModuleProvider="target">
+                                <rect key="frame" x="20" y="108" width="374" height="734"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hpw-SW-Rg2">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -83,8 +87,12 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Hpw-SW-Rg2" secondAttribute="bottom" id="8dU-Vg-QUU"/>
                             <constraint firstItem="Hpw-SW-Rg2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Bbn-St-6Bz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kCq-F7-2Ue" secondAttribute="bottom" constant="20" id="FDH-iQ-lH8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kCq-F7-2Ue" secondAttribute="trailing" constant="20" id="NSz-9K-GM8"/>
                             <constraint firstItem="Hpw-SW-Rg2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XiZ-HV-uq8"/>
+                            <constraint firstItem="kCq-F7-2Ue" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="aiX-0f-wyw"/>
                             <constraint firstItem="Hpw-SW-Rg2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bzD-rG-eLY"/>
+                            <constraint firstItem="kCq-F7-2Ue" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kR5-Hb-lKm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

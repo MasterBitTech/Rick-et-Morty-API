@@ -17,6 +17,8 @@
 		136C6A1022A469C5001C3624 /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C6A0F22A469C5001C3624 /* NavController.swift */; };
 		136C6A1322A46C0A001C3624 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C6A1222A46C0A001C3624 /* APIHelper.swift */; };
 		136C6A1522A4711D001C3624 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C6A1422A4711D001C3624 /* APIResult.swift */; };
+		13777D7422A740DD007CB997 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13777D7322A740DD007CB997 /* DetailView.swift */; };
+		13777D7622A74104007CB997 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13777D7522A74104007CB997 /* DetailView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		136C6A0F22A469C5001C3624 /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
 		136C6A1222A46C0A001C3624 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		136C6A1422A4711D001C3624 /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
+		13777D7322A740DD007CB997 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		13777D7522A74104007CB997 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,8 @@
 			isa = PBXGroup;
 			children = (
 				133DF49A22A5F53700ABA1AB /* PersoCell.swift */,
+				13777D7322A740DD007CB997 /* DetailView.swift */,
+				13777D7522A74104007CB997 /* DetailView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				136C6A0722A465B4001C3624 /* LaunchScreen.storyboard in Resources */,
+				13777D7622A74104007CB997 /* DetailView.xib in Resources */,
 				136C6A0422A465B4001C3624 /* Assets.xcassets in Resources */,
 				136C6A0222A465B4001C3624 /* Main.storyboard in Resources */,
 			);
@@ -175,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				136C6A1322A46C0A001C3624 /* APIHelper.swift in Sources */,
+				13777D7422A740DD007CB997 /* DetailView.swift in Sources */,
 				136C6A1522A4711D001C3624 /* APIResult.swift in Sources */,
 				136C69FF22A465B4001C3624 /* CharactersController.swift in Sources */,
 				136C69FD22A465B4001C3624 /* AppDelegate.swift in Sources */,
