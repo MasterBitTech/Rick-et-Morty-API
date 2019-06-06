@@ -22,5 +22,6 @@ class PersoCell: UICollectionViewCell {
        self.persoIV.download(self.perso.image)
         holderView.layer.cornerRadius = 25
         holderView.clipsToBounds = true
+        // test
     }
 }

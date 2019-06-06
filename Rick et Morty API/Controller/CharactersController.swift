@@ -11,6 +11,7 @@ import UIKit
 class CharactersController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var detailView: DetailView!
     
     var pageSuivante = ""
     var personnages: [Personnage] = []
@@ -20,8 +21,19 @@ class CharactersController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         getPerso(string: APIHelper().urlPersonnages)
+        detailView.alpha = 0
+        NotificationCenter.default.addObserver(self, selector: #selector(animateOut), name: Notification.Name("close"), object: nil)
     }
 
+    func animateIn(personnage: Personnage) {
+        detailView.setup(personnage)
+        collectionView.alpha = 0
+        detailView.alpha = 1
+    }
+    @objc func animateOut() {
+        collectionView.alpha = 1
+        detailView.alpha = 0
+    }
     func getPerso(string: String) {
         APIHelper().getPersos(string) { (pageSuivante, listrePersos, erreurString) in
             if pageSuivante != nil {
@@ -70,5 +82,9 @@ extension CharactersController: UICollectionViewDelegate, UICollectionViewDataSo
                 getPerso(string: pageSuivante)
             }
         }
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let personnage = personnages[indexPath.item]
+        animateIn(personnage: personnage)
     }
 }

@@ -105,6 +105,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Hpw-SW-Rg2" id="M7G-tn-3WN"/>
+                        <outlet property="detailView" destination="kCq-F7-2Ue" id="Sp9-Lr-DoB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
