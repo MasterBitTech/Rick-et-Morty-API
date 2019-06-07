@@ -112,20 +112,72 @@
             </objects>
             <point key="canvasLocation" x="982.60869565217399" y="-536.38392857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings Controller-->
         <scene sceneID="BXI-JR-Sn5">
             <objects>
-                <viewController id="ZcE-oR-ijD" sceneMemberID="viewController">
+                <viewController id="ZcE-oR-ijD" customClass="SettingsController" customModule="Rick_et_Morty_API" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qie-Lx-c0y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entrez un nom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Pr-FP-m65">
+                                <rect key="frame" x="16" y="108" width="382" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="nm0-Oz-ZEJ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPC-MM-Bl0">
+                                <rect key="frame" x="20" y="157" width="304" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="i5L-H7-PuR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2T3-KZ-P07">
+                                <rect key="frame" x="344" y="162" width="52" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="7l2-ks-BBi"/>
+                                    <constraint firstAttribute="height" constant="31" id="NWz-1D-KCz"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="SwitchChanged:" destination="ZcE-oR-ijD" eventType="valueChanged" id="iGx-FQ-huK"/>
+                                </connections>
+                            </switch>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wPC-MM-Bl0" firstAttribute="top" secondItem="4Pr-FP-m65" secondAttribute="bottom" constant="20" id="7ka-Mj-NhD"/>
+                            <constraint firstItem="AH3-Je-SVW" firstAttribute="trailing" secondItem="2T3-KZ-P07" secondAttribute="trailing" constant="20" id="Ama-q1-uhV"/>
+                            <constraint firstItem="4Pr-FP-m65" firstAttribute="top" secondItem="AH3-Je-SVW" secondAttribute="top" constant="20" id="DWG-Df-RFX"/>
+                            <constraint firstItem="wPC-MM-Bl0" firstAttribute="leading" secondItem="AH3-Je-SVW" secondAttribute="leading" constant="20" id="GWB-0z-5S3"/>
+                            <constraint firstItem="AH3-Je-SVW" firstAttribute="trailing" secondItem="4Pr-FP-m65" secondAttribute="trailing" constant="16" id="RaB-ri-iH4"/>
+                            <constraint firstItem="2T3-KZ-P07" firstAttribute="top" secondItem="4Pr-FP-m65" secondAttribute="bottom" constant="24" id="flA-6U-fSu"/>
+                            <constraint firstItem="4Pr-FP-m65" firstAttribute="leading" secondItem="AH3-Je-SVW" secondAttribute="leading" constant="16" id="g2R-lV-B9T"/>
+                            <constraint firstItem="2T3-KZ-P07" firstAttribute="leading" secondItem="wPC-MM-Bl0" secondAttribute="trailing" constant="20" id="h09-J0-seg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="AH3-Je-SVW"/>
                     </view>
+                    <navigationItem key="navigationItem" id="uXB-Gb-HuT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="agw-Ze-gdN">
+                            <connections>
+                                <action selector="saveAction:" destination="ZcE-oR-ijD" id="j7Y-bi-eDG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTF" destination="4Pr-FP-m65" id="Wcf-Sn-ady"/>
+                        <outlet property="statusLbl" destination="wPC-MM-Bl0" id="Wk0-GI-kxv"/>
+                        <outlet property="statusSwitch" destination="2T3-KZ-P07" id="LrE-sC-h4y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="233-Yg-sbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1713" y="-536"/>
+            <point key="canvasLocation" x="1711.5942028985507" y="-536.38392857142856"/>
         </scene>
         <!--Nav Controller-->
         <scene sceneID="sKH-sA-o5v">

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		133DF49B22A5F53700ABA1AB /* PersoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133DF49A22A5F53700ABA1AB /* PersoCell.swift */; };
 		133DF49D22A5F73F00ABA1AB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133DF49C22A5F73F00ABA1AB /* Extensions.swift */; };
+		1360330922A9DE7D0093783E /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1360330822A9DE7D0093783E /* SettingsController.swift */; };
+		1360330B22A9E1FB0093783E /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1360330A22A9E1FB0093783E /* UserDefaultsHelper.swift */; };
 		136C69FD22A465B4001C3624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C69FC22A465B4001C3624 /* AppDelegate.swift */; };
 		136C69FF22A465B4001C3624 /* CharactersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C69FE22A465B4001C3624 /* CharactersController.swift */; };
 		136C6A0222A465B4001C3624 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136C6A0022A465B4001C3624 /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		133DF49A22A5F53700ABA1AB /* PersoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersoCell.swift; sourceTree = "<group>"; };
 		133DF49C22A5F73F00ABA1AB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1360330822A9DE7D0093783E /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		1360330A22A9E1FB0093783E /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		136C69F922A465B4001C3624 /* Rick et Morty API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rick et Morty API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		136C69FC22A465B4001C3624 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		136C69FE22A465B4001C3624 /* CharactersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersController.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 			children = (
 				136C69FE22A465B4001C3624 /* CharactersController.swift */,
 				136C6A0F22A469C5001C3624 /* NavController.swift */,
+				1360330822A9DE7D0093783E /* SettingsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 				136C6A1222A46C0A001C3624 /* APIHelper.swift */,
 				136C6A1422A4711D001C3624 /* APIResult.swift */,
 				133DF49C22A5F73F00ABA1AB /* Extensions.swift */,
+				1360330A22A9E1FB0093783E /* UserDefaultsHelper.swift */,
 			);
 			path = Modele;
 			sourceTree = "<group>";
@@ -181,6 +187,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1360330B22A9E1FB0093783E /* UserDefaultsHelper.swift in Sources */,
+				1360330922A9DE7D0093783E /* SettingsController.swift in Sources */,
 				136C6A1322A46C0A001C3624 /* APIHelper.swift in Sources */,
 				13777D7422A740DD007CB997 /* DetailView.swift in Sources */,
 				136C6A1522A4711D001C3624 /* APIResult.swift in Sources */,
