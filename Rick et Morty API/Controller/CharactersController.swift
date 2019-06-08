@@ -8,13 +8,22 @@
 
 import UIKit
 
+enum TypeQuery {
+    case all
+    case query
+}
+
 class CharactersController: UIViewController {
     
+    @IBOutlet weak var segmented: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var detailView: DetailView!
     
     var pageSuivante = ""
     var personnages: [Personnage] = []
+    
+    var pageSuivanteQuery = ""
+    var personnagesQuery: [Personnage] = []
     
     var cellImageFrame = CGRect()
     var detailImageFrame = CGRect()
@@ -25,11 +34,17 @@ class CharactersController: UIViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        getPerso(string: APIHelper().urlPersonnages)
+        getPerso(string: APIHelper().urlPersonnages, type: .all)
         detailView.alpha = 0
         NotificationCenter.default.addObserver(self, selector: #selector(animateOut), name: Notification.Name("close"), object: nil)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        pageSuivanteQuery = ""
+        personnagesQuery = []
+        getPerso(string: APIHelper().urlAvecParam(), type: .query)
+    }
     func animateIn(personnage: Personnage) {
         detailImageFrame = detailView.presoIV.convert(detailView.presoIV.bounds, to: view)
         detailView.setup(personnage)
@@ -62,29 +77,43 @@ class CharactersController: UIViewController {
         }
     }
     
-    func getPerso(string: String) {
+    func getPerso(string: String, type: TypeQuery) {
         APIHelper().getPersos(string) { (pageSuivante, listrePersos, erreurString) in
             if pageSuivante != nil {
-                print(pageSuivante!)
-                self.pageSuivante = pageSuivante!
+                switch type {
+                case .all: self.pageSuivante = pageSuivante!
+                case .query: self.pageSuivanteQuery = pageSuivante!
+                }
+                
             }
             if erreurString != nil {
                 print(erreurString!)
             }
             if listrePersos != nil {
-                self.personnages.append(contentsOf: listrePersos!)
+                switch type {
+                case .all: self.personnages.append(contentsOf: listrePersos!)
+                case .query: self.personnagesQuery.append(contentsOf: listrePersos!)
+                }
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
             }
         }
     }
+    @IBAction func valueChanged(_ sender: UISegmentedControl) {
+        collectionView.reloadData()
+    }
+    
+    
 }
 
 extension CharactersController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return personnages.count
+        if segmented.selectedSegmentIndex == 0 {
+            return personnages.count
+        }
+        return personnagesQuery.count
     }
     
     //Optionnnelle surtout si 1 section
@@ -92,7 +121,7 @@ extension CharactersController: UICollectionViewDelegate, UICollectionViewDataSo
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let personnage = personnages[indexPath.item]
+        let personnage = segmented.selectedSegmentIndex == 0 ? personnages[indexPath.item] : personnagesQuery[indexPath.item]
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PersoCell", for: indexPath) as? PersoCell {
             cell.setupCell(personnage)
             return cell
@@ -105,9 +134,13 @@ extension CharactersController: UICollectionViewDelegate, UICollectionViewDataSo
         return CGSize(width: taille, height: taille)
     }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item  == personnages.count - 1 {
-            if pageSuivante != "" {
-                getPerso(string: pageSuivante)
+        let count = segmented.selectedSegmentIndex == 0 ? personnages.count : personnagesQuery.count
+        if indexPath.item  == count - 1 {
+            if segmented.selectedSegmentIndex == 0 && pageSuivante != "" {
+                getPerso(string: pageSuivante, type: .all)
+            }
+            if segmented.selectedSegmentIndex == 1 && pageSuivanteQuery != "" {
+                getPerso(string: pageSuivanteQuery, type: .query)
             }
         }
     }
@@ -116,7 +149,11 @@ extension CharactersController: UICollectionViewDelegate, UICollectionViewDataSo
         let frame = collectionView.convert(layout.frame, to: collectionView.superview)
         cellImageFrame = CGRect(x: frame.minX, y: frame.minY + 50, width: frame.width, height: frame.height - 50)
         
-        let personnage = personnages[indexPath.item]
-        animateIn(personnage: personnage)
+        switch segmented.selectedSegmentIndex {
+        case 0: animateIn(personnage: personnages[indexPath.item])
+        case 1: animateIn(personnage: personnagesQuery[indexPath.item])
+        default: break
+        }
+        
     }
 }
