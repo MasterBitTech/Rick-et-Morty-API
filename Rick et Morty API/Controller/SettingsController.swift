@@ -36,11 +36,12 @@ class SettingsController: UIViewController {
     }
     @IBAction func saveAction(_ sender: Any) {
         UserDefaultsHelper().setName(string: nameTF.text)
+        UserDefaultsHelper().setStatus(bool: statusSwitch.isOn)
         navigationController?.popViewController(animated: true)
     }
     
     @IBAction func SwitchChanged(_ sender: UISwitch) {
-        UserDefaultsHelper().setStatus(bool: sender.isOn)
-        setupSwitch()
+        //UserDefaultsHelper().setStatus(bool: sender.isOn)
+        //setupSwitch()
     }
 }

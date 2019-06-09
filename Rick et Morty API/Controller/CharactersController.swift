@@ -24,6 +24,7 @@ class CharactersController: UIViewController {
     
     var pageSuivanteQuery = ""
     var personnagesQuery: [Personnage] = []
+    var enQuery = false
     
     var cellImageFrame = CGRect()
     var detailImageFrame = CGRect()
@@ -38,12 +39,18 @@ class CharactersController: UIViewController {
         detailView.alpha = 0
         NotificationCenter.default.addObserver(self, selector: #selector(animateOut), name: Notification.Name("close"), object: nil)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
+        print("willAppear")
+        print(APIHelper().urlAvecParam())
         super.viewWillAppear(animated)
-        pageSuivanteQuery = ""
-        personnagesQuery = []
-        getPerso(string: APIHelper().urlAvecParam(), type: .query)
+        if enQuery {
+            pageSuivanteQuery = ""
+            personnagesQuery = []
+            getPerso(string: APIHelper().urlAvecParam(), type: .query)
+       // } else {
+       //    getPerso(string: APIHelper().urlPersonnages, type: .all)
+        }
     }
     func animateIn(personnage: Personnage) {
         detailImageFrame = detailView.presoIV.convert(detailView.presoIV.bounds, to: view)
@@ -84,9 +91,9 @@ class CharactersController: UIViewController {
                 case .all: self.pageSuivante = pageSuivante!
                 case .query: self.pageSuivanteQuery = pageSuivante!
                 }
-                
             }
             if erreurString != nil {
+                 //print("ici")
                 print(erreurString!)
             }
             if listrePersos != nil {
@@ -101,6 +108,8 @@ class CharactersController: UIViewController {
         }
     }
     @IBAction func valueChanged(_ sender: UISegmentedControl) {
+        //print("un chagement")
+        enQuery = !enQuery
         collectionView.reloadData()
     }
     
@@ -148,12 +157,13 @@ extension CharactersController: UICollectionViewDelegate, UICollectionViewDataSo
         guard let layout = collectionView.layoutAttributesForItem(at: indexPath) else { return }
         let frame = collectionView.convert(layout.frame, to: collectionView.superview)
         cellImageFrame = CGRect(x: frame.minX, y: frame.minY + 50, width: frame.width, height: frame.height - 50)
-        
-        switch segmented.selectedSegmentIndex {
-        case 0: animateIn(personnage: personnages[indexPath.item])
-        case 1: animateIn(personnage: personnagesQuery[indexPath.item])
-        default: break
+        let count = segmented.selectedSegmentIndex == 0 ? personnages.count : personnagesQuery.count
+        if count > 0 {
+           switch segmented.selectedSegmentIndex {
+           case 0: animateIn(personnage: personnages[indexPath.item])
+           case 1: animateIn(personnage: personnagesQuery[indexPath.item])
+           default: break
+           }
         }
-        
     }
 }
